@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:football/module/following_module/view/cart_screen.dart';
-import 'package:football/module/live_module/view/category_screen.dart';
-import 'package:football/module/home_module/view/home_screen.dart';
-import 'package:football/module/navigation_module/controller/nav_controller.dart';
-import 'package:football/module/profile_module/view/profile_screen.dart';
-import 'package:football/utils/const.dart';
+import 'package:footballalert/module/following_module/view/cart_screen.dart';
+import 'package:footballalert/module/live_module/view/category_screen.dart';
+import 'package:footballalert/module/home_module/view/home_screen.dart';
+import 'package:footballalert/module/navigation_module/controller/nav_controller.dart';
+import 'package:footballalert/module/profile_module/view/profile_screen.dart';
+import 'package:footballalert/utils/const.dart';
 import 'package:get/get.dart';
 
 class HomeNavigationBar extends StatefulWidget {

@@ -2,17 +2,20 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:football/module/navigation_module/view/navigation_bar.dart';
-import 'package:football/service/notification_service/firebase_messaging.dart';
-// import 'package:football/service/notification_service/local_notification_service.dart';
-import 'package:football/utils/const.dart';
+import 'package:footballalert/module/navigation_module/view/navigation_bar.dart';
+import 'package:footballalert/service/hive_services/storage_service.dart';
+import 'package:footballalert/service/notification_service/firebase_messaging.dart';
+import 'package:footballalert/service/notification_service/local_notification_service.dart';
+import 'package:footballalert/utils/const.dart';
 import 'package:get/get.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await FootballFirebaseMessaging().init();
-  // await LocalNotificationService.initialize();
+  await LocalNotificationService.initialize();
+  await StorageService().initStorage();
+  await StorageService().initBox('NOTIFICATION');
   // To set the device orientation to portrait mode only
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {

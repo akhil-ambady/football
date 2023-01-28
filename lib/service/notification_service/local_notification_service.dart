@@ -32,18 +32,22 @@ class LocalNotificationService {
           contentTitle: message?.notification?.title ?? "Title",
           htmlFormatContent: true);
       AndroidNotificationDetails androidPlatformSpecifics =
-          AndroidNotificationDetails("Football", "Football",
+          AndroidNotificationDetails("FootballAlert", "FootballAlert",
               importance: Importance.high,
               styleInformation: bigTextStyleInformation,
               priority: Priority.high,
               playSound: true);
       NotificationDetails platformSpecifics = NotificationDetails(
-          android: androidPlatformSpecifics,
-          iOS: const DarwinNotificationDetails());
+        android: androidPlatformSpecifics,
+        iOS: const DarwinNotificationDetails(),
+        macOS: const DarwinNotificationDetails(),
+        linux: const LinuxNotificationDetails(),
+      );
       await _notificationsPlugin.show(id, message?.notification?.title,
           message?.notification?.body, platformSpecifics,
-          payload: message?.data['title']);
-      // ignore: unused_catch_clause, empty_catches
-    } on Exception catch (e) {}
+          payload: message?.notification?.body ?? "");
+    } on Exception catch (e) {
+      debugPrint(e.toString());
+    }
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:football/module/home_module/controller/home_controller.dart';
-import 'package:football/utils/const.dart';
+import 'package:footballalert/module/home_module/controller/home_controller.dart';
+import 'package:footballalert/utils/const.dart';
 
 
 class FloatingCallButton extends StatelessWidget {

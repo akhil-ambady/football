@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:football/module/home_module/controller/home_controller.dart';
-import 'package:football/utils/const.dart';
-import 'package:football/widgets/custom_appbar.dart';
-import 'package:football/widgets/custom_text.dart';
-import 'package:football/widgets/floating_call_button.dart';
+import 'package:footballalert/module/home_module/controller/home_controller.dart';
+import 'package:footballalert/utils/const.dart';
+import 'package:footballalert/widgets/custom_appbar.dart';
+import 'package:footballalert/widgets/custom_text.dart';
+import 'package:footballalert/widgets/floating_call_button.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:football/module/notification_module/view/notification_screen.dart';
-import 'package:football/utils/const.dart';
+import 'package:footballalert/module/notification_module/view/notification_screen.dart';
+import 'package:footballalert/utils/const.dart';
 import 'package:get/get.dart';
 
 class HomeAppBar extends StatelessWidget {

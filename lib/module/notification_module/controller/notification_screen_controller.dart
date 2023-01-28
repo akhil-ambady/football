@@ -1,6 +1,6 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:football/module/notification_module/model/notification_model.dart';
-import 'package:football/service/hive_services/offline_storage.dart';
+import 'package:footballalert/module/notification_module/model/notification_model.dart';
+import 'package:footballalert/service/hive_services/offline_storage.dart';
 import 'package:get/get.dart';
 
 
@@ -55,7 +55,7 @@ class NotificationScreenController extends GetxController {
     notificationMap['notificationSubTitle'] = message.notification?.body ?? "";
     notificationMap['isRead'] = false;
     notificationMap['date'] = DateTime.now().toString();
-    await OfflineStorage.saveNotification(notificationMap, message.messageId ?? "");
+    OfflineStorage.saveNotification(notificationMap, message.messageId ?? "");
     fetchNotification();
   }
 

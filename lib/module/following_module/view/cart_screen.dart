@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:football/widgets/custom_appbar.dart';
-import 'package:football/widgets/floating_call_button.dart';
+import 'package:footballalert/widgets/custom_appbar.dart';
+import 'package:footballalert/widgets/floating_call_button.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key, required this.title});

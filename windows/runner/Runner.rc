@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "football" "\0"
+            VALUE "CompanyName", "com.interview" "\0"
+            VALUE "FileDescription", "footballalert" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "football" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "football.exe" "\0"
-            VALUE "ProductName", "football" "\0"
+            VALUE "InternalName", "footballalert" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2023 com.interview. All rights reserved." "\0"
+            VALUE "OriginalFilename", "footballalert.exe" "\0"
+            VALUE "ProductName", "footballalert" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

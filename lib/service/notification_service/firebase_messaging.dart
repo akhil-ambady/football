@@ -1,12 +1,14 @@
 import 'dart:io';
 import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:football/main.dart';
-import 'package:football/module/navigation_module/view/navigation_bar.dart';
-import 'package:football/module/notification_module/controller/notification_screen_controller.dart';
-import 'package:football/service/hive_services/storage_service.dart';
-import 'package:football/service/notification_service/local_notification_service.dart';
+import 'package:footballalert/main.dart';
+import 'package:footballalert/module/navigation_module/view/navigation_bar.dart';
+import 'package:footballalert/module/notification_module/controller/notification_screen_controller.dart';
+import 'package:footballalert/service/hive_services/storage_service.dart';
+import 'package:footballalert/service/notification_service/local_notification_service.dart';
 import 'package:get/get.dart';
 
 ///This [FootballFirebaseMessaging] class can be generally used class for handling firebase messaging
@@ -28,9 +30,10 @@ class FootballFirebaseMessaging {
   ///Also ask permission for iOS push notification
   Future<void> init() async {
     if (!_initialized) {
-      ///calling for notification permission in iOS ,doesn't do anything in Android
-      if (Platform.isIOS) {
-        _firebaseMessaging.requestPermission(
+      ///calling for notification permission in iOS or Android,doesn't do anything in Android
+      if (Platform.isIOS || Platform.isAndroid) {
+        NotificationSettings settings =
+            await _firebaseMessaging.requestPermission(
           alert: true,
           announcement: false,
           badge: true,
@@ -39,8 +42,19 @@ class FootballFirebaseMessaging {
           provisional: false,
           sound: true,
         );
+        if (settings.authorizationStatus == AuthorizationStatus.authorized) {
+          debugPrint('user granted permission');
+        } else if (settings.authorizationStatus ==
+            AuthorizationStatus.provisional) {
+          debugPrint('user granted provisional permission');
+        } else {
+          debugPrint('user denied all permissions');
+        }
       }
-      //registerPushService();
+
+      // Registering token in Firebase DB
+      String? token = await registerPushService();
+      saveToken(token!);
 
       // when app in kill state and tap on here
       _firebaseMessaging.getInitialMessage().then((message) async {
@@ -58,6 +72,8 @@ class FootballFirebaseMessaging {
       /// Listening push notification when application is in foreground
       /// --------------------------------------------------------------
       FirebaseMessaging.onMessage.listen((message) async {
+        debugPrint('Got a message whilst in the foreground!');
+        debugPrint('Message data: ${message.notification?.title}');
         if (message.notification != null) {
           await NotificationScreenController().saveNotificationToBB(message);
           LocalNotificationService.display(message);
@@ -87,8 +103,18 @@ class FootballFirebaseMessaging {
     String? currentToken = "";
     await FirebaseMessaging.instance.getToken().then((token) async {
       currentToken = token;
+      debugPrint("My token is $currentToken");
     }).catchError((onError) {});
     return currentToken;
+  }
+
+  Future<void> saveToken(String token) async {
+    await FirebaseFirestore.instance
+        .collection("UserTokens")
+        .doc("User 1")
+        .set({
+      'token': token,
+    });
   }
 
   Future<void> deleteToken() {

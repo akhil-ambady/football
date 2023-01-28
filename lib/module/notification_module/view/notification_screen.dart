@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:football/module/notification_module/controller/notification_screen_controller.dart';
-import 'package:football/service/hive_services/offline_storage.dart';
-import 'package:football/utils/const.dart';
-import 'package:football/widgets/custom_appbar.dart';
-import 'package:football/widgets/custom_text.dart';
+import 'package:footballalert/module/notification_module/controller/notification_screen_controller.dart';
+import 'package:footballalert/service/hive_services/offline_storage.dart';
+import 'package:footballalert/utils/const.dart';
+import 'package:footballalert/widgets/custom_appbar.dart';
+import 'package:footballalert/widgets/custom_text.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 

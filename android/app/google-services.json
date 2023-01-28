@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "473890694387",
-    "project_id": "football-f9eac",
-    "storage_bucket": "football-f9eac.appspot.com"
+    "project_number": "921589960906",
+    "project_id": "football-alert-6c8dc",
+    "storage_bucket": "football-alert-6c8dc.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:473890694387:android:dea0a61b0011c92567c386",
+        "mobilesdk_app_id": "1:921589960906:android:337daed5f95d047f932433",
         "android_client_info": {
-          "package_name": "com.akhil.football"
+          "package_name": "com.interview.footballalert"
         }
       },
       "oauth_client": [
         {
-          "client_id": "473890694387-pfbki6cv724kueadt7n0gjsbboqhs72b.apps.googleusercontent.com",
+          "client_id": "921589960906-mnj1jh0cjqcv9d5l0ph7ucih5bq6h62c.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBLdBm_ZZCisg43A1wPqumHUmyQJyLhO9w"
+          "current_key": "AIzaSyCOWKg7I2hjMesboHbHqLk4pAbuMU9ZkiU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "473890694387-pfbki6cv724kueadt7n0gjsbboqhs72b.apps.googleusercontent.com",
+              "client_id": "921589960906-mnj1jh0cjqcv9d5l0ph7ucih5bq6h62c.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

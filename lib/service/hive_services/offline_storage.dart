@@ -1,4 +1,5 @@
-import 'package:football/service/hive_services/storage_service.dart';
+import 'package:flutter/material.dart';
+import 'package:footballalert/service/hive_services/storage_service.dart';
 
 class OfflineStorage {
   static var notificationStorage = StorageService().getBox('NOTIFICATION');
@@ -7,6 +8,7 @@ class OfflineStorage {
     try {
       if (key != null) {
         await notificationStorage.put(key, data);
+        debugPrint(notificationStorage.values.toString());
         return true;
       }
       return false;
