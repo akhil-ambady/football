@@ -19,7 +19,7 @@ class _CartScreenState extends State<CartScreen> {
       body: Center(
         child: Text(
           'Teams that you are following',
-          style: Theme.of(context).textTheme.headline4,
+          style: Theme.of(context).textTheme.headlineMedium,
           textAlign: TextAlign.center,
         ),
       ),

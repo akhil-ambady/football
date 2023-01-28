@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
             primaryColor: Palette.red,
             colorScheme:
                 ColorScheme.fromSwatch().copyWith(secondary: Palette.red)),
-        home: const HomeNavigationBar(message),
+        home: const HomeNavigationBar(),
       ),
     );
   }

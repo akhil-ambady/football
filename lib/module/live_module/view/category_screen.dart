@@ -19,7 +19,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
       body: Center(
         child: Text(
           'Live Broadcasting',
-          style: Theme.of(context).textTheme.headline4,
+          style: Theme.of(context).textTheme.headlineMedium,
         ),
       ),
       floatingActionButton: const FloatingCallButton(),

@@ -1,11 +1,6 @@
-import 'dart:developer';
-
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:football/module/home_module/controller/home_controller.dart';
-import 'package:football/module/navigation_module/controller/nav_controller.dart';
-import 'package:football/module/navigation_module/view/navigation_bar.dart';
 import 'package:football/utils/const.dart';
 import 'package:football/widgets/custom_appbar.dart';
 import 'package:football/widgets/custom_text.dart';
@@ -13,33 +8,14 @@ import 'package:football/widgets/floating_call_button.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key, required this.title, this.message});
+  const HomeScreen({super.key, required this.title});
   final String title;
-  final RemoteMessage message;
   @override
   State<HomeScreen> createState() => _HomeScreen();
 }
 
 class _HomeScreen extends State<HomeScreen> {
   HomeController homeController = Get.put(HomeController());
-
-  @override
-  void initState() {
-    if (widget.message.notification?.title == "General") {
-      homeController.showAlertDialog(context, widget.message);
-    } else if (widget.message.notification?.title == "Match start") {
-      NavController().changeTabIndex(2);
-      Get.to(() => const HomeNavigationBar(message));
-    } else if (widget.message.notification?.title == "Match goal") {
-      
-    } else if (widget.message.notification?.title == "Match player") {
-    } else if (widget.message.notification?.title == "Table") {
-    } else {
-      log("error");
-    }
-
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,3 @@
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:football/module/following_module/view/cart_screen.dart';
 import 'package:football/module/live_module/view/category_screen.dart';
@@ -9,8 +8,7 @@ import 'package:football/utils/const.dart';
 import 'package:get/get.dart';
 
 class HomeNavigationBar extends StatefulWidget {
-  final RemoteMessage message;
-  const HomeNavigationBar(this.message, {super.key});
+  const HomeNavigationBar({super.key});
 
   @override
   State<HomeNavigationBar> createState() => _HomeNavigationBarState();
@@ -19,7 +17,7 @@ class HomeNavigationBar extends StatefulWidget {
 class _HomeNavigationBarState extends State<HomeNavigationBar> {
   final NavController navController = Get.put(NavController());
   final _pageOptions = const [
-    HomeScreen(title: 'House of Packaging', message),
+    HomeScreen(title: 'House of Packaging'),
     CategoryScreen(title: 'Categories'),
     CartScreen(title: 'Cart'),
     ProfileScreen(title: 'Profile'),

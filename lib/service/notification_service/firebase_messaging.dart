@@ -1,12 +1,10 @@
 import 'dart:io';
 import 'dart:async';
-// ignore: import_of_legacy_library_into_null_safe
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:football/main.dart';
 import 'package:football/module/navigation_module/view/navigation_bar.dart';
 import 'package:football/module/notification_module/controller/notification_screen_controller.dart';
-import 'package:football/module/notification_module/view/notification_screen.dart';
 import 'package:football/service/hive_services/storage_service.dart';
 import 'package:football/service/notification_service/local_notification_service.dart';
 import 'package:get/get.dart';
@@ -73,7 +71,7 @@ class FootballFirebaseMessaging {
           .listen((RemoteMessage message) async {
         if (message.notification != null) {
           await NotificationScreenController().saveNotificationToBB(message);
-          Get.to(() => const HomeNavigationBar(message));
+          Get.to(() => const HomeNavigationBar());
         }
       });
       _initialized = true;
