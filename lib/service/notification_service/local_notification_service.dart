@@ -1,6 +1,7 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:footballalert/module/navigation_module/controller/nav_controller.dart';
 
 class LocalNotificationService {
   static final FlutterLocalNotificationsPlugin _notificationsPlugin =
@@ -17,7 +18,8 @@ class LocalNotificationService {
     await notificationsPlugin.initialize(initializationsSettings,
         onDidReceiveNotificationResponse: (payload) async {
       if (payload.payload != null) {
-        debugPrint('notification payload: ${payload.payload}');
+        NavController().changeTabIndex(0);
+        NavController().update();
       }
     });
   }

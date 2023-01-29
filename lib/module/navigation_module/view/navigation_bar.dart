@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:footballalert/module/following_module/view/cart_screen.dart';
-import 'package:footballalert/module/live_module/view/category_screen.dart';
+import 'package:footballalert/module/following_module/view/following_screen.dart';
+import 'package:footballalert/module/live_module/view/live_screen.dart';
 import 'package:footballalert/module/home_module/view/home_screen.dart';
 import 'package:footballalert/module/navigation_module/controller/nav_controller.dart';
 import 'package:footballalert/module/profile_module/view/profile_screen.dart';
@@ -18,8 +18,8 @@ class _HomeNavigationBarState extends State<HomeNavigationBar> {
   final NavController navController = Get.put(NavController());
   final _pageOptions = const [
     HomeScreen(title: 'House of Packaging'),
-    CategoryScreen(title: 'Categories'),
-    CartScreen(title: 'Cart'),
+    LiveScreen(title: 'Categories'),
+    FollowingScreen(title: 'Cart'),
     ProfileScreen(title: 'Profile'),
   ];
   @override

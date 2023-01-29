@@ -5,11 +5,10 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:footballalert/main.dart';
-import 'package:footballalert/module/navigation_module/view/navigation_bar.dart';
+import 'package:footballalert/module/home_module/controller/home_controller.dart';
 import 'package:footballalert/module/notification_module/controller/notification_screen_controller.dart';
 import 'package:footballalert/service/hive_services/storage_service.dart';
 import 'package:footballalert/service/notification_service/local_notification_service.dart';
-import 'package:get/get.dart';
 
 ///This [FootballFirebaseMessaging] class can be generally used class for handling firebase messaging
 class FootballFirebaseMessaging {
@@ -75,7 +74,8 @@ class FootballFirebaseMessaging {
         debugPrint('Got a message whilst in the foreground!');
         debugPrint('Message data: ${message.notification?.title}');
         if (message.notification != null) {
-          await NotificationScreenController().saveNotificationToBB(message);
+          HomeController().notificationTitle(message.notification?.title);
+          HomeController().notificationDesc(message.notification?.body);
           LocalNotificationService.display(message);
         }
       });
@@ -86,8 +86,8 @@ class FootballFirebaseMessaging {
       FirebaseMessaging.onMessageOpenedApp
           .listen((RemoteMessage message) async {
         if (message.notification != null) {
-          await NotificationScreenController().saveNotificationToBB(message);
-          Get.to(() => const HomeNavigationBar());
+          HomeController().notificationTitle(message.notification?.title);
+          HomeController().notificationDesc(message.notification?.body);
         }
       });
       _initialized = true;
@@ -115,6 +115,15 @@ class FootballFirebaseMessaging {
         .set({
       'token': token,
     });
+  }
+
+  Future<String> getToken() async {
+    DocumentSnapshot snapshot = await FirebaseFirestore.instance
+        .collection("UserTokens")
+        .doc("User 1")
+        .get();
+    Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
+    return data['token'];
   }
 
   Future<void> deleteToken() {

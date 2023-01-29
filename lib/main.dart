@@ -9,6 +9,10 @@ import 'package:footballalert/service/notification_service/local_notification_se
 import 'package:footballalert/utils/const.dart';
 import 'package:get/get.dart';
 
+// Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+//   debugPrint("Handling of background message");
+// }
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -16,6 +20,7 @@ void main() async {
   await LocalNotificationService.initialize();
   await StorageService().initStorage();
   await StorageService().initBox('NOTIFICATION');
+  // FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   // To set the device orientation to portrait mode only
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
